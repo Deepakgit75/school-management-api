@@ -4,11 +4,14 @@ const helmet = require('helmet');
 // const cors = require('cors');
 const errorHandler = require('./src/middlewares/errorHandler');
 const schoolRoutes = require('./src/routes/schoolRoutes');
+const initializeDatabase = require('./src/config/dbInit');
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+initializeDatabase();
 
 // Middleware
 app.use(helmet());
